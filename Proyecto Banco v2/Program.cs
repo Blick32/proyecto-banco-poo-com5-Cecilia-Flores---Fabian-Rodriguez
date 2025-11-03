@@ -602,7 +602,7 @@ namespace tp_integrador_poo
 					
 				}catch(Exception){
 					Console.Write("Hubo un error");
-					opcion = -1; // <--- CORREGIDO: Asegura que el bucle no termine
+					opcion = -1; // <--- CORREGIDO: Asegura que el buc
 				}
 				
 				//despues de pasar la validación seguimos con el switch case
