@@ -63,7 +63,7 @@ namespace tp_integrador_poo
 					//si el dni del objeto cliente es igual al dni ingresado
 					return c;
 				}else{
-					// <--- CORREGIDO: Se quitaron los Console.WriteLine de aquí
+
 				}
 			}
 			
@@ -71,16 +71,7 @@ namespace tp_integrador_poo
 			//return BuscarClienteRecursivo(dni,0);
 		}
 		
-		//metodo auxiliar
-		/*
-		private Cliente BuscarClienteRecursivo(string dni, int i){
-			if (i >= clientes.Count)
-				return null;
-			if (clientes[i].Dni == dni)
-				return clientes[i];
-			return BuscarClienteRecursivo(dni, i + 1);
-		}
-		*/
+
 	
 		public List<Cliente> ListarClientes()
 		{
