@@ -145,10 +145,10 @@ namespace tp_integrador_poo
 			//validar dato ingresado que sea numerico
 			bool nroValido = false;
 			int nroCuenta = 0;
-			//string nro = Console.ReadLine(); // <--- ERROR (Estaba afuera del bucle)
+			//string nro = Console.ReadLine();
 			do{
 				Console.Write("Ingrese número de cuenta: ");
-				string nro = Console.ReadLine(); // <--- CORREGIDO (Movido aquí adentro)
+				string nro = Console.ReadLine(); 
 				try{
 					if(nro == null || nro.Trim() == "" ){
 						throw new FormatException("Por favor ingrese un valor. Ingrese nuevamente.");
@@ -240,7 +240,7 @@ namespace tp_integrador_poo
 		{
 			Console.WriteLine("=== EXTRACCIÓN ===");
 			
-			// --- CORREGIDO: Inicio validación de Nro de Cuenta ---
+			
 			bool nroValido = false;
 			int nroCuenta = 0;
 			do{
@@ -257,13 +257,13 @@ namespace tp_integrador_poo
 					Console.WriteLine(ex.Message);
 				}
 			}while(!nroValido);
-			// --- Fin validación Nro de Cuenta ---
+			
 
 			Cuenta cuenta = banco.BuscarCuenta(nroCuenta);
 
 			if (cuenta != null)
 			{
-				// --- CORREGIDO: Inicio validación de Monto (Estilo DepositarDinero) ---
+				
 				bool montoValido = false;
 				double montoDouble = 0;
 				do{
@@ -292,7 +292,7 @@ namespace tp_integrador_poo
 						Console.WriteLine(ex.Message);
 					}
 				}while(!montoValido);
-				// --- Fin validación de Monto ---
+				
 
 				if (montoDouble <= cuenta.Saldo)
 				{
@@ -343,7 +343,6 @@ namespace tp_integrador_poo
 					
 					//numero positivo
 					
-					// CORREGIDO: Reutilizamos tu método de validación
 					ValidarNumeroEntero(nro); 
 					
 					//si llega hasta aca
@@ -404,14 +403,14 @@ namespace tp_integrador_poo
 		{
 			Console.WriteLine("=== TRANSFERENCIA ===");
 			
-			// --- CORREGIDO: Validación Cuenta Origen ---
+
 			bool nroValidoOrigen = false;
 			int nroOrigen = 0;
 			do{
 				Console.Write("Cuenta origen: ");
 				string nro = Console.ReadLine();
 				try{
-					ValidarNumeroEntero(nro); // Reutilizamos tu método
+					ValidarNumeroEntero(nro); 
 					nroOrigen = int.Parse(nro);
 					nroValidoOrigen = true;	
 				}catch(FormatException ex){
@@ -421,14 +420,14 @@ namespace tp_integrador_poo
 				}
 			}while(!nroValidoOrigen);
 			
-			// --- CORREGIDO: Validación Cuenta Destino ---
+
 			bool nroValidoDestino = false;
 			int nroDestino = 0;
 			do{
 				Console.Write("Cuenta destino: ");
 				string nro = Console.ReadLine();
 				try{
-					ValidarNumeroEntero(nro); // Reutilizamos tu método
+					ValidarNumeroEntero(nro); 
 					nroDestino = int.Parse(nro);
 					nroValidoDestino = true;	
 				}catch(FormatException ex){
@@ -444,7 +443,6 @@ namespace tp_integrador_poo
 
 			if (origen != null && destino != null)
 			{
-				// --- CORREGIDO: Validación Monto (Estilo DepositarDinero) ---
 				bool montoValido = false;
 				double montoDouble = 0;
 				do{
@@ -472,7 +470,7 @@ namespace tp_integrador_poo
 						Console.WriteLine(ex.Message);
 					}
 				}while(!montoValido);
-				// --- Fin Monto ---
+
 
 				if (montoDouble <= origen.Saldo)
 				{
@@ -609,9 +607,7 @@ namespace tp_integrador_poo
 				//pasar la variable elegida a un switch 
 				
 				
-			
-				// === CORREGIDO: ESTE BLOQUE SE ELIMINÓ PORQUE PEDÍA LA OPCIÓN POR SEGUNDA VEZ ===
-				/*
+
 				//------------------DISTINTAS OPCIONES----------------------------
 				string entrada = Console.ReadLine();
 				if(int.TryParse(entrada, out opcion) == false){
