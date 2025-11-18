@@ -274,7 +274,7 @@ namespace tp_integrador_poo
                 
                 //buscamos si el cliente tiene mas cuentas con la recursiva
                 //si el resultado es 0 se elimina el cliente
-                if(ContarCuentasCliente(banco, dniTitular) > 0){
+                if(ContarCuentasCliente(banco, dniTitular) == 0){
                 	//buscar cliente
                 	Cliente cliente = BuscarClientePorDNI(banco, dniTitular);
                 	//eliminar cliente
